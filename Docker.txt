@@ -1,0 +1,60 @@
+
+1. command to build the docker image
+sudo docker image build -t ronenlevy/keras-onnx:first-ctr .
+----------------------------------------------------------------
+
+ending build context to Docker daemon  1.032GB
+Step 1/3 : FROM continuumio/anaconda3
+ ---> 32046080a4e9
+Step 2/3 : RUN /opt/conda/bin/conda install jupyter -y --quiet
+ ---> Running in 5d2ddc66f20a
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+# All requested packages already installed.
+
+Removing intermediate container 5d2ddc66f20a
+ ---> 50bd5df25bc5
+Step 3/3 : CMD /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root
+ ---> Running in fbbdc4931285
+Removing intermediate container fbbdc4931285
+ ---> 31c36b0a02a5
+Successfully built 31c36b0a02a5
+Successfully tagged ronenlevy/keras-onnx:first-ctr
+
+2. check if the 'ronenlevy/keras-onnx' is created
+sudo docker image ls
+----------------------------------------------------------------
+
+REPOSITORY              TAG         IMAGE ID       CREATED         SIZE
+ronenlevy/keras-onnx    first-ctr   31c36b0a02a5   6 minutes ago   2.81GB
+continuumio/anaconda3   latest      32046080a4e9   13 days ago     2.79GB
+hello-world             latest      d1165f221234   2 months ago    13.3kB
+
+
+3. sudo usermod -a -G docker ronen
+----------------------------------------------------------------
+
+4. command to run the docker image
+sudo docker run -i -t --name ai_academy --privileged -p 8889:8889 --volume /home/ronen/ai_academy/keras-onnx:/opt/notebooks ronenlevy/keras-onnx 
+
+sudo docker run -it --name ai_academy -v /root/database:/tmp/install/database:z ...
+
+----------------------------------------------------------------
+Unable to find image 'docker:latest' locally
+latest: Pulling from library/docker
+540db60ca938: Pull complete 
+5a38b3726f4b: Pull complete 
+e5fa5deb3340: Pull complete 
+2b7e0e3b7545: Pull complete 
+493333e9491f: Pull complete 
+28d445cfca76: Pull complete 
+32eb6dfb9227: Pull complete 
+Digest: sha256:ad50b8d78b41dc52f42ab123ce0e3f48c54437ed70ecc2a44c99e889924c8e56
+Status: Downloaded newer image for docker:latest
+unknown shorthand flag: 'r' in -rm
+See 'docker run --help'.
+
+
+
+

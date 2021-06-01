@@ -1,0 +1,10 @@
+Model,Train,Module,Accuracy-1,Accuracy-2
+1,initial_training_data.csv,facial_expression_0,0.24937307834625244,0.24937307834625244
+1,data_gathered_at_0.csv,facial_expression_1,0.24937307834625244,0.2499303370714188
+1,data_gathered_at_1.csv,facial_expression_2,0.16912789642810822,0.16968515515327454
+1,data_gathered_at_2.csv,facial_expression_3,0.24937307834625244,0.24937307834625244
+1,data_gathered_at_2_bk.csv,facial_expression_4,0.24937307834625244,0.2488158196210861
+1,data_gathered_at_3.csv,facial_expression_5,0.2496517151594162,0.2499303370714188
+2,data_gathered_at_4.csv,facial_expression_6,0.18528838455677032,0.18278071284294128
+2,data_gathered_at_5.csv,facial_expression_7,0.24937307834625244,0.19420450925827026
+2,data_gathered_at_6.csv,facial_expression_8,0.25076621770858765,0.25076621770858765

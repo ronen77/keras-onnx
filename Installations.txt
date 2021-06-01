@@ -1,0 +1,103 @@
+Installation:
+
+1. Linux Virtual Machine:
+https://itsfoss.com/install-linux-in-virtualbox/
+https://itsfoss.com/virtualbox-guest-additions-ubuntu/
+https://www.isunshare.com/blog/3-ways-to-transfer-files-between-windows-and-virtualbox/
+
+2. Anaconda
+
+3. Packages: 
+pip install -U jupyter_contrib_nbextensions
+pip install -U scikit-learn
+pip install -U plotly
+pip install -U torchvision
+pip install -U hdbscan
+pip install -U argmaxml
+pip install -U pyarrow
+pip install -U xgboost
+pip install -U keras
+pip install -U matplotlib
+pip install -U xgboost
+pip install -U imbalanced-learn
+pip install -U delayed
+pip install -U optuna
+pip install -U metric_learn
+pip install -U shap
+pip install -U eli5
+pip install -U pyarrow
+pip install -U gmplot
+pip install -U mlxtend
+pip install -U onnx2keras
+pip install -U onnxmltools
+pip install -U onnxruntime
+pip install -U keras2onnx
+pip install -U onnxruntime
+pip install --upgrade tensorflow==2.3.1
+
+4. Docker
+https://medium.com/@patrickmichelberger/getting-started-with-anaconda-docker-b50a2c482139
+https://docs.docker.com/engine/install/ubuntu/
+
+sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+sudo docker run hello-world
+
+// share directory between linux host and docker container file system
+sudo chown -R www-data.www-data /home/ronen/ai_academy
+
+// mount docker to shared folder, and run the docker (i.e you will get #, meaning you're inside docker)
+sudo docker run -i -t -p 8889:8889 --volume /home/ronen/ai_academy:/opt/notebooks continuumio/anaconda3 /bin/bash
+
+// run the anaconda inside the docker container environment
+/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8889 --allow-root
+
+// open browser to observe the notebooks
+http://localhost:8889
+
+
+5. GIT
+git config --global user.name "Ronen Levy"
+git config --global user.email "levyron77@gmail.com"
+git config --edit --global
+git config --global core.editor "code --wait --new-window"
+git log
+git add .
+// commmint + add
+git commit -am "new files added"
+git commit -am "Web site files added"
+
+//creating SSH Key
+ls -al ~/.ssh
+ssh-keygen -t rsa -b 4096 -C "levyron77@gmail.com"
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+ssh -T git@github.com
+dir /ah
+git push origin main
+
+5. DVC
+https://dvc.org/
+https://dvc.org/doc/command-reference/checkout
+https://www.determined.ai/blog/data-version-control-determined?gclid=EAIaIQobChMIwOiQ7O3k8AIVlud3Ch2DEA05EAAYASAAEgKV7_D_BwE
+https://dvc.org/doc/use-cases/versioning-data-and-model-files/tutorial
+https://amp-reddit-com.cdn.ampproject.org/c/s/amp.reddit.com/r/MachineLearning/comments/nlg070/d_version_control_with_dvc_highlevel_usage/
+https://www.youtube.com/watch?v=QYNgWWearZ4
+https://dvc.org/doc/install/windows
+
